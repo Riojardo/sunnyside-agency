@@ -157,9 +157,8 @@ footer {
   }
 }
 @media screen and (max-width: 375px) {
-  .sunny__main_oeuf {
+  .sunny__main_oeuf img {
     max-width: 100%;
-    height: auto;
   }
 }
 .sunny__main_stand {
@@ -173,9 +172,8 @@ footer {
   }
 }
 @media screen and (max-width: 375px) {
-  .sunny__main_stand {
+  .sunny__main_stand img {
     max-width: 100%;
-    height: auto;
   }
 }
 .sunny__main_standout {
