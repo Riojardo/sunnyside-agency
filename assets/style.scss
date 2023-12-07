@@ -4,48 +4,73 @@
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/fraunces/v31/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIctxuTB_7TtUs.woff2) format('woff2');
     unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
+    @import url('https://fonts.cdnfonts.com/css/barlow');
+}
   
+$desk-screen: "1440px";
+$phone-screen: "375px";
+
+@mixin version-maxwidth($screensize){
+    @media (min-width:$screensize) {
+       @content;
+     }
+ }
 
 body {
     @media screen and (min-width: 376px) {
     max-width: 1440px;
+    height: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
         }
     @media screen and (max-width: 375px) {
-        max-width: 375px;
+        min-width: 375px;
+        display:block;
+        margin: 0;
+        padding: 0;
+        
     }
-    @import url('https://fonts.cdnfonts.com/css/barlow');
+   
     
 }
 header{
     width:1440px;
     height: 800px;
+    @media screen and (max-width: 375px) {
+    width:375px;}
 }
 main{
+    @media screen and (min-width: 376px) {
     width:1440px;
-    height: auto; 
+    height: auto; }
+    @media screen and (max-width: 375px) {
+        width:100%}
+
 }
 footer{
     width:1440px;
     height: 350px;
     background-color:hsl( 168, 34%, 41%);
+    @media screen and (max-width: 375px) {
+        width:100%}
 }
 
-.sunny{
+.sunny{ 
     
-    font-family: 'Barlow', sans-serif;
+    @media screen and (max-width: 375px) {    
     display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	justify-content: center;
-	align-items: center;
-	align-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+    width: 100%;
+    
+}
     
     &__head{
-        background-image: url("https://raw.githubusercontent.com/becodeorg/CRL-Wilson-3/main/1.TRAIL/01.The-Field/05.Sunnyside/resources/images/photos/image-header.jpg?token=GHSAT0AAAAAACJUPXRQ75CZTGL5VAJAELAKZLPTWRQ");
+        background-image: url('image-header.jpg');
         background-position: center;
         background-repeat: no-repeat;
         display: flex;
@@ -54,8 +79,6 @@ footer{
 	    justify-content: center;
 	    align-items: stretch;
 	    align-content: center;
-        background-position: center;
-        background-repeat: no-repeat;
         height: 100%;
         
         
@@ -67,6 +90,7 @@ footer{
             justify-content: space-between;
             align-items: baseline;
             align-content: flex-start;
+            word-spacing: 2px;
 
             margin-left:5%;
             margin-right: 5%;
@@ -99,65 +123,139 @@ footer{
 
     }
     &__main{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
+        @media screen and (min-width: 376px) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;}
+            @media screen and (max-width: 375px) {
+            width: 100%;
+            display: flex;
+	        flex-direction: column;
+	        flex-wrap: nowrap;
+	        justify-content: flex-start;
+	        align-items: stretch;
+	        align-content: stretch;
+             
+
+        }
     
         &_brand{
-        max-width: 720px;
-        max-height: 600px;
-        grid-area: 1 / 1 / 2 / 2;
-        text-align: center;
+                text-align: center;      
+                margin-top: 15%;                 
+                @media screen and (min-width: 376px) {
+            max-width: 720px;
+            max-height: 600px;}
+            grid-area: 1 / 1 / 2 / 2;
+            @media screen and (max-width: 375px) {
+                width: 100%;
+                height: 100%;;
+           }
+           p{
+            font-weight: 500;
+            font-family: 'barlow';
+            font-size: 18px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+           }
    
     }
         &_oeuf{
+            @media screen and (min-width: 376px) {
         max-width: 720px;
-        max-height: 600px;
+        max-height: 600px;}
         grid-area:  1 / 2 / 2 / 3; 
+        @media screen and (max-width: 375px) {
+            width: 100%;
+            height: 100%;
+            }
+       
 
     }
         &_stand{
+           
+            @media screen and (min-width: 376px) {
         max-width: 720px;
-        max-height: 600px;
+        max-height: 600px;}
         grid-area: 2 / 1 / 3 / 2;
         text-align: center;
-             
-        
+        @media screen and (max-width: 375px) {
+            width: 100%;
+            height: 100%;
+        }
+                
 
     }
         &_standout{
-        max-width: 720px;
-        max-height: 600px;
-        grid-area: 2 / 2 / 3 / 3; 
+            text-align: center;      
+            margin-top: 15%;  
+            @media screen and (min-width: 376px) {
+            max-width: 720px;
+            max-height: 600px;
+            grid-area: 2 / 2 / 3 / 3; }
+            @media screen and (max-width: 375px) {
+                width: 100%;
+                height: 100%;}
+                p{
+                    font-weight: 500;
+                    font-family: 'barlow';
+                    font-size: 18px;
+                    margin-top: 5%;
+                    margin-bottom: 5%;
+                   }
+                a{
+                    font-family: 'fraunces';
+                    font-weight: 900;
+                    font-size: 22px;
+                }
 
 
     }
         &_design{
+            @media screen and (min-width: 376px) {
         width: 720px;
-        height: 600px;
+        height: 600px;}
         grid-area: 3 / 1 / 4 / 2;
-        background-image: url("https://raw.githubusercontent.com/becodeorg/CRL-Wilson-3/main/1.TRAIL/01.The-Field/05.Sunnyside/resources/images/photos/image-graphic-design.jpg?token=GHSAT0AAAAAACJUPXRRV3DQNKBLXUDEIGNKZLPSR4Q");
+        background-image: url('image-graphic-design.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
+        @media screen and (max-width: 375px) {
+            width: 100%;
+            height: 100%;}
+            p{
+                font-weight: 500;
+                font-family: 'barlow';
+                font-size: 18px;
+                margin-top: 5%;
+                margin-bottom: 5%;
+               }
         
 
     }
         &_photography{
+            @media screen and (min-width: 376px) {
         display: block;
         width: 720px;
-        height: 600px;
+        height: 600px;}
         grid-area: 3 / 2 / 4 / 3;
-        background-image: url("https://raw.githubusercontent.com/becodeorg/CRL-Wilson-3/main/1.TRAIL/01.The-Field/05.Sunnyside/resources/images/photos/image-photography.jpg?token=GHSAT0AAAAAACJUPXRRJ5XWUGDQLHW5OGZKZLPSREA");
+        background-image: url('image-photography.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
+        p{
+            font-weight: 500;
+            font-family: 'barlow';
+            font-size: 18px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+           }
         
         
     }
         &_testimonials{
+            @media screen and (min-width: 376px){
         max-width: 1440px;
         display: flex;
 	    flex-direction: row;
@@ -166,7 +264,15 @@ footer{
 	    align-items: center;
 	    align-content: stretch;
         grid-area: 4 / 1 / 5 / 3;
-        
+            }
+            @media screen and (max-width: 375px){
+                max-width: 375px;
+                display: flex;
+	    flex-direction: column;
+	    flex-wrap: nowrap;
+	    justify-content: center;
+	    align-items: center;
+            }
 
         
         &-emily{
@@ -204,6 +310,8 @@ footer{
 
           
     &_image{
+       
+        @media screen and (min-width: 376px){
         grid-area: 5 / 1 / 6 / 3;
         display: flex;
         flex-direction: row;
@@ -211,38 +319,66 @@ footer{
         justify-content: flex-start;
         align-items: flex-start;
         align-content: stretch;
-        width: 1440px;
-        height: 447px;
+        width: 100%;
+        height: 447px;}
+
+        @media screen and (max-width: 375px){
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            width: 100%;
+            height: 100%;
+        }
         
         .milk{
-            max-width: 360px;
-            max-height: 437px;
+            @media screen and (min-width: 375px){
+            max-width: 100%;
+            max-height: 437px;}
+            @media screen and (max-width: 375px){
+            grid-area: 1 / 1 / 2 / 2;  
+            min-width: 25%;
+            min-height: 25%;}
 
         }
         .orange{
-            max-width: 360px;
-            max-height: 437px;
+            @media screen and (min-width: 375px){
+                max-width: 100%;
+                max-height: 437px;}
+            @media screen and (max-width: 375px){
+            grid-area: 1 / 2 / 2 / 3;
+            min-width: 25%;
+            min-height: 25%;}
 
         }
         .cone{
-            max-width: 360px;
-            max-height: 437px;
+            @media screen and (min-width: 375px){
+                max-width: 100%;
+                max-height: 437px;}
+            @media screen and (max-width: 375px){
+            grid-area: 2 / 1 / 3 / 2;
+             min-width: 25%;
+            min-height: 25%;
+    }
         }
         .sugar{
-            max-width: 360px;
-            max-height: 437px;
-        }
-                 
-    }
-    
+            @media screen and (min-width: 375px){
+                max-width: 100%;
+                max-height: 437px;}
+            @media screen and (max-width: 375px){
+            grid-area: 2 / 2 / 3 / 3; 
+            min-width: 25%;
+            min-height: 25%;}
+            
+        }                 
+    }  
     &__footer{
         width: 1440px;
         height: 350px;
         background-color: hsl(168, 34%, 41%);
     }
-
 }
-
 }
 
 

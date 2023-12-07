@@ -4,13 +4,12 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/fraunces/v31/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0K7iN7hzFUPJH58nib1603gg7S2nfgRYIctxuTB_7TtUs.woff2) format("woff2");
   unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-body {
   @import url("https://fonts.cdnfonts.com/css/barlow");
 }
 @media screen and (min-width: 376px) {
   body {
     max-width: 1440px;
+    height: 100%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -18,7 +17,10 @@ body {
 }
 @media screen and (max-width: 375px) {
   body {
-    max-width: 375px;
+    min-width: 375px;
+    display: block;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -26,10 +28,22 @@ header {
   width: 1440px;
   height: 800px;
 }
+@media screen and (max-width: 375px) {
+  header {
+    width: 375px;
+  }
+}
 
-main {
-  width: 1440px;
-  height: auto;
+@media screen and (min-width: 376px) {
+  main {
+    width: 1440px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 375px) {
+  main {
+    width: 100%;
+  }
 }
 
 footer {
@@ -37,18 +51,25 @@ footer {
   height: 350px;
   background-color: hsl(168, 34%, 41%);
 }
+@media screen and (max-width: 375px) {
+  footer {
+    width: 100%;
+  }
+}
 
-.sunny {
-  font-family: "Barlow", sans-serif;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: flex-start;
+@media screen and (max-width: 375px) {
+  .sunny {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    width: 100%;
+  }
 }
 .sunny__head {
-  background-image: url("https://raw.githubusercontent.com/becodeorg/CRL-Wilson-3/main/1.TRAIL/01.The-Field/05.Sunnyside/resources/images/photos/image-header.jpg?token=GHSAT0AAAAAACJUPXRQOM2FVBSKBXCDMQBGZLPRWJQ");
+  background-image: url("image-header.jpg");
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
@@ -57,8 +78,6 @@ footer {
   justify-content: center;
   align-items: stretch;
   align-content: center;
-  background-position: center;
-  background-repeat: no-repeat;
   height: 100%;
 }
 .sunny__head_info {
@@ -69,6 +88,10 @@ footer {
   justify-content: space-between;
   align-items: baseline;
   align-content: flex-start;
+  word-spacing: 2px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3%;
 }
 .sunny__head_info_info-button {
   color: red;
@@ -89,62 +112,180 @@ footer {
   margin-right: auto;
   width: 30px;
   height: 108px;
+  margin-bottom: 20%;
 }
-.sunny__main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+@media screen and (min-width: 376px) {
+  .sunny__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+  }
 }
 .sunny__main_brand {
-  max-width: 720px;
-  max-height: 600px;
+  text-align: center;
+  margin-top: 15%;
   grid-area: 1/1/2/2;
 }
+@media screen and (min-width: 376px) {
+  .sunny__main_brand {
+    max-width: 720px;
+    max-height: 600px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_brand {
+    width: 100%;
+    height: 100%;
+  }
+}
+.sunny__main_brand p {
+  font-weight: 500;
+  font-family: "barlow";
+  font-size: 18px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 .sunny__main_oeuf {
-  max-width: 720px;
-  max-height: 600px;
   grid-area: 1/2/2/3;
 }
+@media screen and (min-width: 376px) {
+  .sunny__main_oeuf {
+    max-width: 720px;
+    max-height: 600px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_oeuf {
+    width: 100%;
+    height: 100%;
+  }
+}
 .sunny__main_stand {
-  max-width: 720px;
-  max-height: 600px;
   grid-area: 2/1/3/2;
+  text-align: center;
+}
+@media screen and (min-width: 376px) {
+  .sunny__main_stand {
+    max-width: 720px;
+    max-height: 600px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_stand {
+    width: 100%;
+    height: 100%;
+  }
 }
 .sunny__main_standout {
-  max-width: 720px;
-  max-height: 600px;
-  grid-area: 2/2/3/3;
+  text-align: center;
+  margin-top: 15%;
+}
+@media screen and (min-width: 376px) {
+  .sunny__main_standout {
+    max-width: 720px;
+    max-height: 600px;
+    grid-area: 2/2/3/3;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_standout {
+    width: 100%;
+    height: 100%;
+  }
+}
+.sunny__main_standout p {
+  font-weight: 500;
+  font-family: "barlow";
+  font-size: 18px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.sunny__main_standout a {
+  font-family: "fraunces";
+  font-weight: 900;
+  font-size: 22px;
 }
 .sunny__main_design {
-  width: 720px;
-  height: 600px;
   grid-area: 3/1/4/2;
-  background-image: url("https://raw.githubusercontent.com/becodeorg/CRL-Wilson-3/main/1.TRAIL/01.The-Field/05.Sunnyside/resources/images/photos/image-graphic-design.jpg?token=GHSAT0AAAAAACJUPXRRV3DQNKBLXUDEIGNKZLPSR4Q");
+  background-image: url("image-graphic-design.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+@media screen and (min-width: 376px) {
+  .sunny__main_design {
+    width: 720px;
+    height: 600px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_design {
+    width: 100%;
+    height: 100%;
+  }
+}
+.sunny__main_design p {
+  font-weight: 500;
+  font-family: "barlow";
+  font-size: 18px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 .sunny__main_photography {
-  display: block;
-  width: 720px;
-  height: 600px;
   grid-area: 3/2/4/3;
-  background-image: url("https://raw.githubusercontent.com/becodeorg/CRL-Wilson-3/main/1.TRAIL/01.The-Field/05.Sunnyside/resources/images/photos/image-photography.jpg?token=GHSAT0AAAAAACJUPXRRJ5XWUGDQLHW5OGZKZLPSREA");
+  background-image: url("image-photography.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-.sunny__main_testimonials {
-  max-width: 1440px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: stretch;
-  grid-area: 4/1/5/3;
+@media screen and (min-width: 376px) {
+  .sunny__main_photography {
+    display: block;
+    width: 720px;
+    height: 600px;
+  }
+}
+.sunny__main_photography p {
+  font-weight: 500;
+  font-family: "barlow";
+  font-size: 18px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+@media screen and (min-width: 376px) {
+  .sunny__main_testimonials {
+    max-width: 1440px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    grid-area: 4/1/5/3;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_testimonials {
+    max-width: 375px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .sunny__main_testimonials-emily {
   float: left;
@@ -172,32 +313,81 @@ footer {
   -o-object-position: top center;
      object-position: top center;
 }
-.sunny__main_image {
-  grid-area: 5/1/6/3;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: stretch;
-  width: 1440px;
-  height: 447px;
+@media screen and (min-width: 376px) {
+  .sunny__main_image {
+    grid-area: 5/1/6/3;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: stretch;
+    width: 100%;
+    height: 447px;
+  }
 }
-.sunny__main_image .milk {
-  max-width: 360px;
-  max-height: 437px;
+@media screen and (max-width: 375px) {
+  .sunny__main_image {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+    height: 100%;
+  }
 }
-.sunny__main_image .orange {
-  max-width: 360px;
-  max-height: 437px;
+@media screen and (min-width: 375px) {
+  .sunny__main_image .milk {
+    max-width: 100%;
+    max-height: 437px;
+  }
 }
-.sunny__main_image .cone {
-  max-width: 360px;
-  max-height: 437px;
+@media screen and (max-width: 375px) {
+  .sunny__main_image .milk {
+    grid-area: 1/1/2/2;
+    min-width: 25%;
+    min-height: 25%;
+  }
 }
-.sunny__main_image .sugar {
-  max-width: 360px;
-  max-height: 437px;
+@media screen and (min-width: 375px) {
+  .sunny__main_image .orange {
+    max-width: 100%;
+    max-height: 437px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_image .orange {
+    grid-area: 1/2/2/3;
+    min-width: 25%;
+    min-height: 25%;
+  }
+}
+@media screen and (min-width: 375px) {
+  .sunny__main_image .cone {
+    max-width: 100%;
+    max-height: 437px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_image .cone {
+    grid-area: 2/1/3/2;
+    min-width: 25%;
+    min-height: 25%;
+  }
+}
+@media screen and (min-width: 375px) {
+  .sunny__main_image .sugar {
+    max-width: 100%;
+    max-height: 437px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sunny__main_image .sugar {
+    grid-area: 2/2/3/3;
+    min-width: 25%;
+    min-height: 25%;
+  }
 }
 .sunny__main__footer {
   width: 1440px;
